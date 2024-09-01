@@ -1,0 +1,18 @@
+
+name: Run yp-win.exe
+
+on:
+  push:
+    branches:
+      - main  # 或者你想要触发工作流的分支
+
+jobs:
+  build:
+    runs-on: windows-latest  # 使用 Windows 最新的虚拟环境
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Run yp-win.exe
+      run: .\yp-win.exe sync .\download.json
